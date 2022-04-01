@@ -1,0 +1,30 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+        <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+        <StartupObject>Ocr.Program</StartupObject>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="itext7" Version="7.2.1"/>
+        <PackageReference Include="Swashbuckle.AspNetCore" Version="6.3.0"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <Reference Include="Tesseract">
+            <HintPath>Lib\Tesseract.dll</HintPath>
+        </Reference>
+    </ItemGroup>
+
+    <ItemGroup>
+        <None Update="tessdata\deu.traineddata.new">
+            <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+        </None>
+        <None Update="tessdata\deu.traineddata">
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </None>
+    </ItemGroup>
+
+
+</Project>
